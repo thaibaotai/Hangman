@@ -1,8 +1,73 @@
 import random
 import sys
 
-words = ['python', 'java', 'swift', 'javascript']
-attempts = 8
+words = ['watermelon', 'cucumber', 'apple', 'banana',
+         'restaurant', 'television', 'internet', 'minecraft',
+         'dragon']
+graphic = [r'''
+ =====
+ |   |
+ |   O
+ |  /|\
+ |  / \
+ |
+ ==========''', r'''
+ =====
+ |   |
+ |   O
+ |  /|\
+ |  / 
+ |
+ ==========
+ ''', r'''
+ =====
+ |   |
+ |   O
+ |  /|\
+ |  
+ |
+ ==========
+ ''', r'''
+ =====
+ |   |
+ |   O
+ |  /|
+ |  
+ |
+ ==========
+ ''', r'''
+ =====
+ |   |
+ |   O
+ |   |
+ |  
+ |
+ ==========
+ ''', r'''
+ =====
+ |   |
+ |   
+ |  
+ |  
+ |
+ ==========
+ ''', r'''
+ =====
+ |   
+ |  
+ |  
+ |  
+ |
+ ==========
+ ''', r'''
+ 
+ 
+ 
+ 
+  
+ 
+ ==========
+ ''']
 won = 0
 lost = 0
 
@@ -61,11 +126,13 @@ def check_input():
 
 print('H A N G M A N')
 while True:
+    attempts = 8
     word = random.choice(words)
     guess_set = set()
     output = "-" * len(word)
     menu()
     while attempts:
+        print(graphic[attempts - 1])
         guess = check_input()
         guess_set.add(guess)
         if guess in word:
